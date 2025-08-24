@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-danger mb-4">🩸 Add Donation</h2>
+
+    <form method="POST" class="bg-white p-4 shadow rounded">
+        <!-- Donor Selection -->
+        <div class="mb-3">
+            <label class="form-label fw-bold">Select Donor</label>
+            <select name="donor_id" class="form-select" required>
+                <option value="">-- Choose Donor --</option>
+                {% for donor in donors %}
+                <option value="{{ donor.id }}">{{ donor.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Patient Selection -->
+        <div class="mb-3">
+            <label class="form-label fw-bold">Select Patient</label>
+            <select name="patient_id" class="form-select" required>
+                <option value="">-- Choose Patient --</option>
+                {% for patient in patients %}
+                <option value="{{ patient.id }}">{{ patient.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Donation Date -->
+        <div class="mb-3">
+            <label class="form-label fw-bold">Donation Date</label>
+            <input type="date" name="donation_date" class="form-control" required>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+            <button type="submit" class="btn btn-danger btn-lg">Save Donation</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+

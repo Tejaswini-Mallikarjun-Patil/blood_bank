@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2 class="text-danger">Donor List</h2>
+  <table class="table table-bordered mt-3">
+    <thead class="table-danger">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Blood Group</th>
+        <th>Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for donor in donors %}
+      <tr>
+        <td>{{ donor.id }}</td>
+        <td>{{ donor.name }}</td>
+        <td>{{ donor.age }}</td>
+        <td>{{ donor.blood_group }}</td>
+        <td>{{ donor.contact }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

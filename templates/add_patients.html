@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-danger mb-4">➕ Add Patient</h2>
+
+    <form method="POST" class="bg-white p-4 shadow rounded">
+        <!-- Patient Name -->
+        <div class="mb-3">
+            <label class="form-label fw-bold">Name</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+
+        <!-- Age -->
+        <div class="mb-3">
+            <label class="form-label fw-bold">Age</label>
+            <input type="number" name="age" class="form-control" required>
+        </div>
+
+        <!-- Blood Group -->
+        <div class="mb-3">
+            <label class="form-label fw-bold">Blood Group</label>
+            <select name="blood_group" class="form-select" required>
+                <option value="">-- Select Blood Group --</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+        </div>
+
+        <!-- Contact -->
+        <div class="mb-3">
+            <label class="form-label fw-bold">Contact</label>
+            <input type="text" name="contact" class="form-control" required>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+            <button type="submit" class="btn btn-danger btn-lg">Save Patient</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

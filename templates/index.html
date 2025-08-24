@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="text-danger mb-3">Welcome to the Blood Bank System 🩸</h1>
+    <p class="lead mb-4">Manage donors, patients, and donations with ease.</p>
+
+    {% if not session.get('hospital_id') %}
+        <div class="d-flex justify-content-center align-items-center flex-column">
+            <img src="{{ url_for('static', filename='blood-donation-day-1024x576.png') }}"
+                 alt="Donate Blood" class="img-fluid rounded shadow mb-4" style="max-width: 600px;">
+            <blockquote class="blockquote mb-4 fs-4">
+                "Your blood is precious: Donate, save a life & make it Divine."
+            </blockquote>
+            <p>
+                <a class="btn btn-danger me-2" href="/login">Login</a>
+                <a class="btn btn-danger me-2" href="/register">Register</a>
+            </p>
+        </div>
+    {% else %}
+        <p class="fs-5">Hello, {{ session['hospital_name'] }}! Use the navigation above to manage donors, patients, and donations.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+
